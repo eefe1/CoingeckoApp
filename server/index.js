@@ -8,6 +8,7 @@ const app = express();
   const { getCoins, getCoinById } = require('./api');
   app.get('/coins', async (req, res) => {
     const coins = await getCoins();
+    console.log(res)
     res.send(coins);
   });
   

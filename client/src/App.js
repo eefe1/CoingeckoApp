@@ -1,11 +1,13 @@
 import React from 'react';
 import Coins from './Coins';
+import Layout from './components/Layout';
+
 
 function App() {
   return (
-    <div>
+   <Layout>
       <Coins />
-    </div>
+</Layout>
   );
 }
 
