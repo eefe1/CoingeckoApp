@@ -1,5 +1,5 @@
 import React from 'react';
-import Coins from './Coins';
+import Coins from './components/Coins';
 import Layout from './components/Layout';
 
 
