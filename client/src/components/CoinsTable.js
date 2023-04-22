@@ -10,6 +10,14 @@ import {
 import CoinDetail from "./CoinDetail";
 import styled from "styled-components";
 
+
+const StyledTableRow = styled(TableRow)`
+  &:hover {
+    background-color: #FEE2E2;
+    opacity:0.2;
+    
+  }
+`;
 const CircleImage = styled.img`
   border-radius: 50%;
   width: 20px;
@@ -64,7 +72,7 @@ function CoinsTable({ coins }) {
         </TableHead>
         <TableBody>
           {coins.map((coin) => (
-            <TableRow key={coin.id}>
+            <StyledTableRow key={coin.id}>
               <TableCell>
                 <CircleImage src={coin.image} alt={coin.name} />
               </TableCell>
@@ -82,7 +90,7 @@ function CoinsTable({ coins }) {
                 ...
               </TableCell>
               <CoinDetail open={open} onClose={handleClose} />
-            </TableRow>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>
