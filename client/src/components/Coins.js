@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import CoinsTable from './CoinsTable';
-import {Divider} from "@mui/material";
-
-
+import React, { useState, useEffect } from "react";
+import CoinsTable from "./CoinsTable";
+import { Divider } from "@mui/material";
+import axios from "axios";
 
 function Coins() {
   const [coins, setCoins] = useState([]);
 
-//Fetch the list of coins from the Node.js server using the /coins endpoint.
+  //Fetch the list of coins from the Node.js server using the /coins endpoint.
 
-useEffect(() => {
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/coins")
+      .then((response) => {
+        setCoins(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  /* useEffect(() => {
   fetch('http://localhost:5000/coins')
     .then(response => response.json())
     .then(data => setCoins(data))
     .catch(error => console.log(error));
-}, []);
+}, []); */
 
   return (
     <>
-      <Divider/>
-      <CoinsTable coins={coins}/>
-      </>
+      <Divider />
+      <CoinsTable coins={coins} />
+    </>
   );
 }
 

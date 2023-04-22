@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import {useNavigate} from 'react-router-dom';
+
 
 const Div = styled.div`
   background-color: #f0f1f5;
@@ -32,22 +34,28 @@ const MainBox = styled(Box)`
 const Main = styled(Box)`
   display: flex;
   border-radius: 8px;
-  padding: 20px 40px;
-  width: 1000px;
+  padding: 60px;
   background-color: #ffffff;
   color: #f0f1f5;
 `;
 
 function Layout({ children }) {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/");
+  }
   return (
+    <>
     <Div>
       <Header>
-        <Logo>Gecko</Logo>{" "}
+        <Typography onClick={handleClick}> Gecko</Typography>
       </Header>
       <MainBox>
         <Main>{children}</Main>
       </MainBox>
     </Div>
+    </>
   );
 }
 
