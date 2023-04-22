@@ -13,22 +13,19 @@ function Coins() {
       .get("http://localhost:5000/coins")
       .then((response) => {
         setCoins(response.data);
+        console.log(coins)
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  /* useEffect(() => {
-  fetch('http://localhost:5000/coins')
-    .then(response => response.json())
-    .then(data => setCoins(data))
-    .catch(error => console.log(error));
-}, []); */
+
 
   return (
     <>
       <Divider />
       <CoinsTable coins={coins} />
+      
     </>
   );
 }
