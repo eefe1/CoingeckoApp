@@ -57,6 +57,7 @@ function CoinsTable({ coins }) {
     <Container>
       <TableContainer>
         <TextField
+          size="small"
           label="Search"
           variant="outlined"
           style={{ marginBottom: 20, width: "100%" }}
@@ -72,7 +73,7 @@ function CoinsTable({ coins }) {
                 "24%",
                 "24h High",
                 "24h Low",
-                "More",
+                "",
               ].map((head) => (
                 <TableCell
                   sx={{ color: "#AEB1BF", pl: 5 }}
@@ -115,7 +116,7 @@ function CoinsTable({ coins }) {
                       <TableCell align="right">${row?.low_24h}</TableCell>
                       <TableCell>
                         <Button onClick={() => handleRowClick(row.id)}>
-                          more
+                          ...
                         </Button>
                       </TableCell>
                     </>
