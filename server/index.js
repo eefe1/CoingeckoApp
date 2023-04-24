@@ -6,11 +6,14 @@ const app = express();
   app.use(cors())
 
   const { getCoins, getCoinById } = require('./api');
+
   app.get('/coins', async (req, res) => {
-    const coins = await getCoins();
+    const skip = parseInt(req.query.skip) || 0;
+    const limit = parseInt(req.query.limit) || 100;
+    const coins = await getCoins(skip, limit);
     res.send(coins);
   });
-  
+
   app.get('/coins/:id', async (req, res) => {
     const { id } = req.params;
     const coin = await getCoinById(id);

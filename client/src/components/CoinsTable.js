@@ -14,12 +14,7 @@ import {
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const StyledTableRow = styled(TableRow)`
-  &:hover {
-    background-color: #fee2e2;
-    opacity: 0.2;
-  }
-`;
+
 const CircleImage = styled.img`
   border-radius: 50%;
   width: 20px;
@@ -101,7 +96,7 @@ function CoinsTable({ coins }) {
                       <TableCell align="inherit">
                         <Box>{row?.symbol.toUpperCase()}</Box>
                       </TableCell>
-                      <TableCell align="right">${row?.current_price}</TableCell>
+                      <TableCell align="right">${row?.current_price.toLocaleString()}</TableCell>
                       <TableCell
                         align="right"
                         style={{
@@ -112,8 +107,8 @@ function CoinsTable({ coins }) {
                         {profit && "+"}
                         {row.price_change_percentage_24h.toFixed(2)}%
                       </TableCell>
-                      <TableCell align="right">${row?.high_24h}</TableCell>
-                      <TableCell align="right">${row?.low_24h}</TableCell>
+                      <TableCell align="right">${row?.high_24h.toLocaleString()}</TableCell>
+                      <TableCell align="right">${row?.low_24h.toLocaleString()}</TableCell>
                       <TableCell>
                         <Button onClick={() => handleRowClick(row.id)}>
                           ...
