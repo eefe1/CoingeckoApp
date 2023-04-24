@@ -23,8 +23,16 @@ const Header = styled.header`
   align-items: center;
   padding: 20px 40px;
   border-bottom: 1px;
-  color: #f0f1f5;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #03A66D;
+  margin: 0.5em 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  padding-bottom: 0.5em;
+  cursor:grab;
 `;
+
 const MainBox = styled(Box)`
   margin-top: 80px;
   display: flex;
@@ -36,7 +44,6 @@ const Main = styled(Box)`
   border-radius: 8px;
   padding: 60px;
   background-color: #ffffff;
-  color: #f0f1f5;
 `;
 
 function Layout({ children }) {
